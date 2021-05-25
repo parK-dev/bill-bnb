@@ -1,0 +1,7 @@
+<h1>All locations</h1>
+<% @locations.each do |location| %>
+  <div class="d-flex">
+    <p> <%= location.name %>  ~ </p>
+    <p> <%= location.address %> </p>
+  </div>
+<% end %>

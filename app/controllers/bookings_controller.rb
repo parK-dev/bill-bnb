@@ -3,12 +3,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.location = @location
+    authorize @booking
     if @booking.save
       redirect_to location_path(@location)
     else
@@ -16,14 +18,14 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
-    @booking = Booking.all
-  end
+  # def index
+  #   @booking = policy_scope(Booking)
+  # end
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
-
 
   private
 
@@ -34,6 +36,4 @@ class BookingsController < ApplicationController
   def set_location
     @location = Location.find(params[:location_id])
   end
-
-
 end

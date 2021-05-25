@@ -5,6 +5,10 @@ class LocationPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create?
     true if user?
   end

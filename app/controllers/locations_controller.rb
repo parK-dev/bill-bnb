@@ -1,11 +1,14 @@
 class LocationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @locations = Location.all
+    @locations = policy_scope(Location)
   end
 
   def show
     @location = Location.find(params[:id])
     @booking = Booking.new
+    authorize @location
   end
 
   def new
@@ -14,6 +17,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    authorize @location
     if @location.save
       flash[:success] = "Location successfully created"
       redirect_to @location

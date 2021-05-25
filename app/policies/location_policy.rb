@@ -10,6 +10,6 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def create?
-    user?
+    user
   end
 end

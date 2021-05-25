@@ -4,4 +4,12 @@ class LocationPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    true
+  end
+
+  def create?
+    user?
+  end
 end

@@ -12,3 +12,18 @@ body {
   flex: 1 0 auto;
 }
 
+.booking-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rent {
+  border-bottom: 1px solid black;
+}
+
+.own {
+  border-top: 1px solid black;
+}
+

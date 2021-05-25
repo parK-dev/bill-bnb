@@ -3,22 +3,14 @@
     <h1>All locations</h1>
     <% @locations.each do |location| %>
       <div class="card-trip mt-4">
-        <% if location.photo.attached? %>
-          <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <% end %>
+        <%= location.photo.attached? ? cl_image_tag(@location.photo.key) : image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg") %>
         <div class="card-trip-infos">
           <div>
             <h2><%= location.name %></h2>
               <p><%= location.description %></p>
           </div>
           <h2 class="card-trip-pricing">$<%= location.price_per_day %></h2>
-          <% if location.user.photo.attached? %>
-            <%= cl_image_tag location.user.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src="https://kitt.lewagon.com/placeholder/users/one" class="card-trip-user avatar-bordered" />
-          <% end %>
+          <%= location.user.photo.attached? ? cl_image_tag(@location.photo.key, class: 'card-trip-user avatar-bordered') : image_tag("https://kitt.lewagon.com/placeholder/users/one", class: "card-trip-user avatar-bordered") %>
         </div>
       </div>
     <% end %>

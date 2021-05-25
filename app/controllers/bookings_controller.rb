@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :find_location
-  before_action :find_booking
+  before_action :find_location, only: [:new, :create]
+  # before_action :find_booking, only:
 
   def new
     @booking = Booking.new
@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.location_id = @location.id
+    @booking.user = User.first #current_user
+    @booking.location = @location
     if @booking.save
       redirect_to location_path(@location)
     else
@@ -16,7 +17,8 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
+  def index
+    @booking = Booking.all
   end
 
   def destroy
@@ -25,11 +27,11 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status, :user_id, :location_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def find_location
-    @location = Location.find(params[:id])
+    @location = Location.find(params[:location_id])
   end
 
   def find_booking

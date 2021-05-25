@@ -1,0 +1,9 @@
+<%= simple_form_for ([@location, @location.booking.build]) do |f| %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :status %>
+  <%= f.input :user_id %>
+  <%= f.input :location_id %>
+  <%= f.button :submit %>
+<% end %>

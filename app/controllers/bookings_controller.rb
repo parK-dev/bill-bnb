@@ -18,9 +18,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def index
-  #   @booking = policy_scope(Booking)
-  # end
+  def index
+    @bookings = policy_scope(Booking)
+    @bookings_as_owner = current_user.bookings_as_owner
+  end
 
   def update
     @booking = Booking.find(params[:id])

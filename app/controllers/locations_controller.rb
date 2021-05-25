@@ -13,10 +13,12 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    authorize @location
   end
 
   def create
     @location = Location.new(location_params)
+    @location.user = current_user
     authorize @location
     if @location.save
       flash[:success] = "Location successfully created"
@@ -31,6 +33,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:user_id, :name, :address, :price_per_day, :description, :capacity)
+    params.require(:location).permit(:name, :address, :price_per_day, :description, :capacity)
   end
 end

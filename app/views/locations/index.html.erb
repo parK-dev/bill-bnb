@@ -1,19 +1,9 @@
 <div class="container justify-content-center">
-  <div class="row justify-content-center mt-4">
+  <div class="row d-flex flex-column align-items-center mt-4">
     <h1>All locations</h1>
-    <% @locations.each do |location| %>
-      <div class="card-trip mt-4 filter-space">
-        <%= location.photo.attached? ? cl_image_tag(@location.photo.key) : image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg") %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= location.name %></h2>
-              <p><%= location.description %></p>
-          </div>
-          <h2 class="card-trip-pricing">$<%= location.price_per_day %></h2>
-          <%= location.user.photo.attached? ? cl_image_tag(@location.photo.key, class: 'card-trip-user avatar-bordered') : image_tag("https://kitt.lewagon.com/placeholder/users/one", class: "card-trip-user avatar-bordered") %>
-        </div>
-        <%= link_to '', location_path(location), class: 'card-link' %>
-      </div>
+    <%= link_to new_location_path, style: "color: black;" do  %>
+      <i class="fas fa-plus-circle"></i>
     <% end %>
+      <%= render 'list' %>
   </div>
 </div>

@@ -1,1 +1,34 @@
 <h1>All bookings</h1>
+<div class="booking-wrapper">
+  <div class="rent">
+    <h2>Here is what I've booked</h2>
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
+          <p><%= booking.location.address %></p>
+          <p><%= booking.location.capacity %></p>
+          <p><%= booking.location.price_per_day %></p>
+          <p><%= booking.status %></p>
+          <p><%= booking.start_date %></p>
+          <p><%= booking.end_date %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="own">
+    <h2>Here is what I own</h2>
+    <ul>
+      <% @bookings_as_owner.each do |booking| %>
+        <li>
+          <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
+          <p>booking.location.address</p>
+          <p>booking.location.price_per_day</p>
+          <p>booking.status</p>
+          <p>booking.start_date</p>
+          <p>booking.end_date</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

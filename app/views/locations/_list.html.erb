@@ -1,6 +1,6 @@
 <% @locations.each do |location| %>
   <div class="card-trip mt-4 filter-space">
-    <%= location.photo.attached? ? cl_image_tag(@location.photo.key) : image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg") %>
+    <%= location.photo.attached? ? cl_image_tag(location.photo.key) : image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg") %>
     <div class="card-trip-infos">
       <div>
         <h2><%= location.name %></h2>

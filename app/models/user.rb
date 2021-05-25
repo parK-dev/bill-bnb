@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :locations, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :bookings_as_owner, through: :locations, source: :bookings
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

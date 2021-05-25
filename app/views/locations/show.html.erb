@@ -1,7 +1,7 @@
 <div class="container justify-content-center">
-  <h1> <%= @location.name %> </h1>
-  <div class="card-trip">
-    <%= @location.photo.attached? ? cl_image_tag(@location.photo.key) : image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg") %>
+
+  <div style= "height: 100%; background-image: <%= @location.photo.attached? ? cl_image_path(@location.photo.key) : image_path('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg') %>">
+    </div>
     <div class="card-trip-infos">
       <div>
         <h2> <%= @location.name %> </h2>
@@ -10,5 +10,9 @@
       <h2 class="card-trip-pricing">$<%= @location.price_per_day %></h2>
       <%= @location.user.photo.attached? ? cl_image_tag(@location.photo.key, class: 'card-trip-user avatar-bordered') : image_tag("https://kitt.lewagon.com/placeholder/users/one", class: "card-trip-user avatar-bordered") %>
     </div>
-  </div>
+
 </div>
+
+<% if policy(Booking).create? %>
+  <%= render 'bookings/form' %>
+<% end %>

@@ -10,6 +10,6 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def create?
-    true if user?
+    user?
   end
 end

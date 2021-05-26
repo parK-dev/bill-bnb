@@ -4,7 +4,7 @@
       <div class="d-flex">
         <h1 class="flex-grow-1">All locations</h1>
         <% if current_user %>
-          <%= link_to 'Create new location', new_location_path, class: 'btn btn-success btn-lg mb-3' %>
+          <%= link_to 'Create new location', new_location_path, class: 'btn btn-success btn-lg mb-3 mr-4' %>
         <% end %>
       </div>
       <div>
@@ -12,10 +12,11 @@
       </div>
 
     </div>
-  </div>
-  <div id="map"
-     style="width: 50%; height: 100vh; display: fixed;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+
+    <div id="map"
+       style="width: 50%; height: 100vh; display: fixed;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+   </div>
 </div>

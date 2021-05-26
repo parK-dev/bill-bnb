@@ -1,10 +1,13 @@
 <div class="container justify-content-center">
   <div class="row d-flex flex-column align-items-center mt-4">
-    <h1>All locations</h1>
-    <%= link_to new_location_path, style: "color: black;" do  %>
-      <i class="fas fa-plus-circle"></i>
-    <% end %>
-      <%= render @locations %>
+    <div>
+      <h1>All locations</h1>
+      <%= link_to new_location_path, style: "color: black;" do  %>
+        <i class="fas fa-plus-circle"></i>
+      <% end %>
+
+    </div>
+      <%= render 'location' %>
   </div>
   <div id="map"
      style="width: 100%; height: 600px;"

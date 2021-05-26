@@ -6,12 +6,12 @@
       <% @bookings.each do |booking| %>
         <li>
           <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
-          <p><%= booking.location.address %></p>
-          <p><%= booking.location.capacity %></p>
-          <p><%= booking.location.price_per_day %></p>
-          <p><%= booking.status %></p>
-          <p><%= booking.start_date %></p>
-          <p><%= booking.end_date %></p>
+          <p>Address: <%= booking.location.address %></p>
+          <p>Capacity: <%= booking.location.capacity %></p>
+          <p>Price per Day: <%= booking.location.price_per_day %></p>
+          <p>Status: <%= booking.status %></p>
+          <p>Start Date: <%= booking.start_date %></p>
+          <p>End Date: <%= booking.end_date %></p>
         </li>
       <% end %>
     </ul>
@@ -22,11 +22,22 @@
       <% @bookings_as_owner.each do |booking| %>
         <li>
           <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
-          <p>booking.location.address</p>
-          <p>booking.location.price_per_day</p>
-          <p>booking.status</p>
-          <p>booking.start_date</p>
-          <p>booking.end_date</p>
+          <p>Address: <%= booking.location.address %></p>
+          <p>Price per Day: <%= booking.location.price_per_day %></p>
+          <p>Start Date: <%= booking.start_date %></p>
+          <p>End Date: <%= booking.end_date %></p>
+          <% if booking.pending? %>
+           <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'confirmed' } %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <% end %>
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+              <%= f.submit 'Reject', class: 'btn btn-info' %>
+            <% end %>
+          <% else %>
+            <p class="booking-tag">Status: <%= booking.status %></p>
+          <% end %>
         </li>
       <% end %>
     </ul>

@@ -1,13 +1,20 @@
-<div class="container justify-content-center">
-  <div class="row d-flex flex-column align-items-center mt-4">
-    <h1>All locations</h1>
-    <%= link_to new_location_path, style: "color: black;" do  %>
-      <i class="fas fa-plus-circle"></i>
-    <% end %>
-      <%= render 'list' %>
+<div class="mr-5">
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <div class="d-flex">
+        <h1 class="flex-grow-1">All locations</h1>
+        <% if current_user %>
+          <%= link_to 'Create new location', new_location_path, class: 'btn btn-success btn-lg mb-3' %>
+        <% end %>
+      </div>
+      <div>
+        <%= render 'location' %>
+      </div>
+
+    </div>
   </div>
   <div id="map"
-     style="width: 100%; height: 600px;"
+     style="width: 50%; height: 100vh; display: fixed;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

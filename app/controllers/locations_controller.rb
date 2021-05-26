@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
       }
     end
   end
-  end
+
 
   def show
     @location = Location.find(params[:id])

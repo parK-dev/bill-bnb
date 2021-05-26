@@ -16,13 +16,17 @@ body {
 
 .booking-wrapper {
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .rent {
-  border-bottom: 1px solid black;
+  border: 2px groove black;
+  margin: 16px;
+  padding: 8px;
 }
 .own {
-  border-top: 1px solid black;
+  border: 2px groove black;
+  padding: 8px;
+  margin: 16px;
 }

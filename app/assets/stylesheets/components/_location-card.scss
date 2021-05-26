@@ -15,3 +15,16 @@
   bottom: 0px;
   width: 100%;
 }
+
+.location-card-big {
+  height: 250px;
+  width: 600px;
+  background-color:  $white;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  img{
+    width: 250px;
+    height: auto;
+  }
+}
+

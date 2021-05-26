@@ -1,45 +1,49 @@
-<h1>All bookings</h1>
 <div class="booking-wrapper">
   <div class="rent">
-    <h2>Here is what I've booked</h2>
-    <ul>
+    <h2>Properties I've Requested to Rent</h2>
       <% @bookings.each do |booking| %>
-        <li>
-          <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
-          <p>Address: <%= booking.location.address %></p>
-          <p>Capacity: <%= booking.location.capacity %></p>
-          <p>Price per Day: <%= booking.location.price_per_day %></p>
-          <p>Status: <%= booking.status %></p>
-          <p>Start Date: <%= booking.start_date %></p>
-          <p>End Date: <%= booking.end_date %></p>
-        </li>
+        <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
+          <div class="location-info flex-grow-1 mb-5">
+            <div>
+              <h3><%= link_to "#{booking.location.name}", location_path(booking.location) %> </h3>
+              <p><%= booking.location.address %> </p>
+              <p>$<%= booking.location.price_per_day %> / day </p>
+              <p><%= booking.location.capacity %> tables </p>
+              <p>Dates: <%= booking.start_date.strftime('%A, %b %d') %> - <%= booking.end_date.strftime('%A, %b %d') %></p>
+            </div>
+          </div>
+          <%= cl_image_tag(booking.location.photo.key, class: 'rounded-sm') %>
+        </div>
       <% end %>
-    </ul>
   </div>
+
   <div class="own">
-    <h2>Here is what I own</h2>
-    <ul>
+    <h2>Properties I Own</h2>
       <% @bookings_as_owner.each do |booking| %>
-        <li>
-          <p><%= link_to "#{booking.location.name}", location_path(booking) %></p>
-          <p>Address: <%= booking.location.address %></p>
-          <p>Price per Day: <%= booking.location.price_per_day %></p>
-          <p>Start Date: <%= booking.start_date %></p>
-          <p>End Date: <%= booking.end_date %></p>
-          <% if booking.pending? %>
-           <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'confirmed' } %>
-            <%= f.submit 'Accept', class: 'btn btn-info' %>
-            <% end %>
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-              <%= f.submit 'Reject', class: 'btn btn-info' %>
-            <% end %>
-          <% else %>
-            <p class="booking-tag">Status: <%= booking.status %></p>
-          <% end %>
-        </li>
+        <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
+          <div class="location-info flex-grow-1 mb-5">
+            <div>
+              <h3><%= link_to "#{booking.location.name}", location_path(booking.location) %></h3>
+              <p><%= booking.location.address %> </p>
+              <p>$<%= booking.location.price_per_day %> / day </p>
+              <p>Dates: <%= booking.start_date.strftime('%A, %b %d') %> - <%= booking.end_date.strftime('%A, %b %d') %></p>
+
+              <% if booking.pending? %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'confirmed' } %>
+                  <%= f.submit 'Accept', class: 'btn btn-success' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+                  <%= f.submit 'Reject', class: 'btn btn-success' %>
+                <% end %>
+              <% else %>
+                <p class="booking-tag">Status: <%= booking.status %></p>
+              <% end %>
+            </div>
+          </div>
+          <%= cl_image_tag(booking.location.photo.key, class: 'rounded-sm') %>
+        </div>
       <% end %>
-    </ul>
   </div>
 </div>

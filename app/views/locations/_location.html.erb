@@ -1,7 +1,12 @@
-<div class="d-flex p-3 border-top border-bottom border-secondary rounded-sm location-card">
-  <div class="location-info flex-grow-1">
-    <h3> <%= location.name %> </h3>
-    <p> <%= location.description %> </p>
+
+<% @locations.each do |location| %>
+  <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card">
+    <div class="location-info flex-grow-1">
+      <h3> <%= location.name %> </h3>
+      <p> <%= location.description %> </p>
+      <p> <%= location.id %> </p>
+    </div>
+    <%= cl_image_tag(location.photo.key, class: 'rounded-sm') %>
+    <%= link_to '', location_path(location), class: 'location-card-link' %>
   </div>
-  <%= cl_image_tag(location.photo.key) %>
-</div>
+<% end %>

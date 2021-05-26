@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    raise
     @location = Location.find(params[:id])
     @booking = Booking.new
     authorize @location

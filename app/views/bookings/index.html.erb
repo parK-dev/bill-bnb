@@ -1,49 +1,59 @@
 <div class="booking-wrapper">
+
   <div class="rent">
-    <h2>Properties I've Requested to Rent</h2>
-      <% @bookings.each do |booking| %>
+    <h2 class="border-bottom mb-3">Properties I've Requested to Rent</h2>
+    <% @bookings.each do |booking| %>
+      <% unless booking.status == 'rejected' %>
         <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
           <div class="location-info flex-grow-1 mb-5">
             <div>
               <h3><%= link_to "#{booking.location.name}", location_path(booking.location) %> </h3>
               <p><%= booking.location.address %> </p>
               <p>$<%= booking.location.price_per_day %> / day </p>
-              <p><%= booking.location.capacity %> tables </p>
-              <p>Dates: <%= booking.start_date.strftime('%A, %b %d') %> - <%= booking.end_date.strftime('%A, %b %d') %></p>
+              <p><%= booking.location.capacity %> table(s) </p>
+              <p>Start: <%= booking.start_date.strftime('%A, %b %d') %></p>
+              <p>End: <%= booking.end_date.strftime('%A, %b %d') %></p>
+              <p>Status: <%= booking.status %></p>
             </div>
           </div>
           <%= cl_image_tag(booking.location.photo.key, class: 'rounded-sm') %>
         </div>
       <% end %>
+    <% end %>
   </div>
 
   <div class="own">
-    <h2>Properties I Own</h2>
+    <h2 class="border-bottom mb-3">Properties I Own</h2>
       <% @bookings_as_owner.each do |booking| %>
-        <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
-          <div class="location-info flex-grow-1 mb-5">
-            <div>
-              <h3><%= link_to "#{booking.location.name}", location_path(booking.location) %></h3>
-              <p><%= booking.location.address %> </p>
-              <p>$<%= booking.location.price_per_day %> / day </p>
-              <p>Dates: <%= booking.start_date.strftime('%A, %b %d') %> - <%= booking.end_date.strftime('%A, %b %d') %></p>
-
-              <% if booking.pending? %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'confirmed' } %>
-                  <%= f.submit 'Accept', class: 'btn btn-success' %>
-                <% end %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-                  <%= f.submit 'Reject', class: 'btn btn-success' %>
-                <% end %>
-              <% else %>
-                <p class="booking-tag">Status: <%= booking.status %></p>
-              <% end %>
+        <% unless booking.status == 'rejected' %>
+          <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
+            <div class="location-info flex-grow-1 mb-5">
+              <div class="d-flex-column">
+                <h3><%= link_to "#{booking.location.name}", location_path(booking.location) %></h3>
+                <p><%= booking.location.address %> </p>
+                <p>$<%= booking.location.price_per_day %> / day </p>
+                <p>Start: <%= booking.start_date.strftime('%A, %b %d') %></p>
+                <p>End:<%= booking.end_date.strftime('%A, %b %d') %></p>
+                <div class="d-flex mt-3">
+                  <% if booking.pending? %>
+                    <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'confirmed' } %>
+                      <%= f.submit 'Accept', class: 'btn btn-success' %>
+                    <% end %>
+                    <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+                      <%= f.submit 'Reject', class: 'btn btn-success ml-3' %>
+                    <% end %>
+                  <% else %>
+                    <p class="booking-tag">Status: <%= booking.status %></p>
+                  <% end %>
+                </div>
+              </div>
             </div>
+            <%= cl_image_tag(booking.location.photo.key, class: 'rounded-sm') %>
           </div>
-          <%= cl_image_tag(booking.location.photo.key, class: 'rounded-sm') %>
-        </div>
+        <% end %>
       <% end %>
   </div>
+
 </div>

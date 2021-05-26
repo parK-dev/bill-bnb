@@ -9,7 +9,7 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
 
   def pending?
-    status == 0
+    status == 'pending'
   end
 
 end

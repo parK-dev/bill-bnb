@@ -27,6 +27,14 @@
           <p>booking.status</p>
           <p>booking.start_date</p>
           <p>booking.end_date</p>
+           <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 1 } %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 2 } %>
+            <%= f.submit 'Reject', class: 'btn btn-info' %>
+          <% end %>
         </li>
       <% end %>
     </ul>

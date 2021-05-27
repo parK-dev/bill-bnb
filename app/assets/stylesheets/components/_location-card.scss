@@ -1,6 +1,9 @@
 .location-card{
   width: 600px;
   height: 180px;
+  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+  border-radius: 16px;
   background-color:  $white;
   position: relative;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);

@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     @bookings_as_owner = current_user.bookings_as_owner
+    @bookings_as_renter = @bookings - @bookings_as_owner
   end
 
   def update

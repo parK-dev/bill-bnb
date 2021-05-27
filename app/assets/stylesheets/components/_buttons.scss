@@ -1,0 +1,53 @@
+.button{
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all .2s easy-in;
+  a{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+    color: white;
+    transform: scale(1.01);
+  }
+}
+
+
+.button-success{
+  // background-color: $green;
+  background: rgb(87,188,144);
+  background-size: 170% 100%;
+  background-image: linear-gradient(to right, rgba(87,188,144,1) 32%, rgba(119,201,212,1) 89%, rgba(103,195,179,1) 100%);
+  transition: all .4s ease-in-out;
+   a{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+    color: white;
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+  }
+}
+
+
+.button-alert{
+  // background-color: $orange;
+  background: rgb(255,157,71);
+  background-size: 180% 80%;
+  background-image: linear-gradient(to right, rgba(255,157,71,1) 52%, rgba(255,176,80,1) 64%, rgba(255,198,90,1) 100%);
+  transition: all .4s ease-in-out;
+   a{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+    color: white;
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+  }
+}
+

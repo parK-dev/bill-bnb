@@ -2,7 +2,11 @@ class LocationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @locations = policy_scope(Location)
+    if params[:query]
+      @locations = policy_scope(Location).near(params[:query], 50)
+    else
+      @locations = policy_scope(Location)
+    end
      @markers = @locations.geocoded.map do |location|
       {
         lat: location.latitude,

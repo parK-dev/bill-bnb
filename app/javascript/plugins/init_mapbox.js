@@ -9,6 +9,7 @@ const buildMap = (mapElement) => {
     style: 'mapbox://styles/abdul007/ckp69xw310dy718p0b14kdsmr',
     center: [-77.04, 38.907],
     zoom: 11.15,
+
   });
 
 };
@@ -18,6 +19,16 @@ const buildMap = (mapElement) => {
 
 
 const addMarkersToMap = (map, markers) => {
+   map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        })
+
+    );
+
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
     new mapboxgl.Marker()
@@ -25,7 +36,12 @@ const addMarkersToMap = (map, markers) => {
       .setPopup(popup)
       .addTo(map);
 
+
   });
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+
 };
 
 const fitMapToMarkers = (map, markers) => {
@@ -44,5 +60,9 @@ const initMapbox = () => {
 
   }
 };
+
+const controls = () => {
+  map.addControl(new mapboxgl.NavigationControl());
+  };
 
 export { initMapbox };

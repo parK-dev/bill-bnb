@@ -14,10 +14,6 @@ const buildMap = (mapElement) => {
 
 };
 
-
-
-
-
 const addMarkersToMap = (map, markers) => {
    map.addControl(
         new mapboxgl.GeolocateControl({

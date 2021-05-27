@@ -8,8 +8,4 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  def pending?
-    status == 'pending'
-  end
-
 end

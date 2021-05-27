@@ -28,21 +28,9 @@ class BookingsController < ApplicationController
   def update
     authorize @booking
     if @booking.update(booking_params)
-      @booking.delete if @booking.status == 'rejected'
       redirect_to bookings_path
     end
   end
-
-  def destroy
-    if @booking.destroy
-      flash[:success] = 'Booking was successfully deleted.'
-      redirect_to bookings_url
-    else
-      flash[:error] = 'Something went wrong'
-      redirect_to bookings_url
-    end
-  end
-  
 
   private
 

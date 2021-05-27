@@ -1,0 +1,8 @@
+<%= form_tag locations_path, method: :get do %>
+  <%= search_field_tag :query,
+    params[:query],
+    class: "form-control",
+    id: "location_address",
+    placeholder: "Search"
+  %>
+<% end %>

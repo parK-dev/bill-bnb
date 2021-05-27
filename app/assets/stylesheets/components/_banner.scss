@@ -7,12 +7,30 @@
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
-  margin-top: -15vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  margin-top: -6vh;
 }
 
-.banner-text {
-  color: #FFFFFF
+.banner-text-chef {
+  color: #FFFFFF;
+  grid-column: 0 / 1;
+  grid-row: 0 / 1;
 }
+
+.banner-text-owner {
+  color: #FFFFFF;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.banner-text-pitch {
+  color: #FFFFFF;
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+
+

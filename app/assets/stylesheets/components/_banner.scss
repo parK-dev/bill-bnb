@@ -7,29 +7,32 @@
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
-  display: grid;
-  grid-gap: 8px;
-  grid-template-columns: auto auto auto auto auto;
-  grid-template-rows: auto auto auto auto;
   margin-top: -6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner-text-chef {
+ #banner-text {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+#banner-text-typed {
   color: #FFFFFF;
-  grid-column: 0 / 1;
-  grid-row: 0 / 1;
+  font-size: 32px;
+  height: 30vh;
+  width: 100vw;
+  text-align: center;
 }
 
-.banner-text-owner {
+.typed-cursor {
   color: #FFFFFF;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-.banner-text-pitch {
-  color: #FFFFFF;
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
+  font-size: 32px;
 }
 
 

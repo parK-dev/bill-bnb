@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_location, only: [:new, :create]
+  before_action :set_booking, only: [:destroy, :update]
 
   def new
     @booking = Booking.new
@@ -21,10 +22,10 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     @bookings_as_owner = current_user.bookings_as_owner
+    @bookings_as_renter = @bookings - @bookings_as_owner
   end
 
   def update
-    @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
       redirect_to bookings_path
@@ -35,6 +36,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def set_location

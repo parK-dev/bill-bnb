@@ -1,0 +1,58 @@
+.booking-card{
+  width: 600px;
+  height: 210px;
+  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+  border-radius: 16px;
+  background-color:  rgba(255,255,255,0.9);
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all .2s ease-in-out;
+
+  text-shadow: 2px 2px $light-gray;
+  img{
+    width: 250px;
+    height: auto;
+  }
+  i{
+    opacity: 0.7;
+  }
+  h5{
+    opacity: 0.8;
+  }
+}
+
+.booking-info{
+  p{
+    opacity: 0.6;
+  }
+}
+
+
+.booking-status-confirmed {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 24px;
+  color: $green;
+  p{
+    color: black;
+    opacity: 0.6;
+    margin: 0 8px;
+    padding: 0;
+    font-size: 16px;
+  }
+}
+
+.booking-status-pending {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 24px;
+  color: $blue;
+  p{
+    color: black;
+    opacity: 0.6;
+    margin: 0 8px;
+    padding: 0;
+    font-size: 16px;
+  }
+}

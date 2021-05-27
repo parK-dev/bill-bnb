@@ -7,7 +7,7 @@ let options = {
     'Earn money as a Chef_Space host',
     'Search below and find spaces near you'
     ],
-  typeSpeed: 30,
+  typeSpeed: 50,
   fadeOut: true,
   showCursor: false,
   startDelay: 500

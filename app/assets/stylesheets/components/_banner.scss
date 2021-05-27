@@ -1,5 +1,5 @@
 #banner {
-  background-image: url('bg.jpeg');
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('bg.jpeg');
   background-position: center;
   background-size: cover;
   margin-left: -5vw;
@@ -24,16 +24,14 @@
 
 #banner-text-typed {
   color: #FFFFFF;
-  font-size: 32px;
+  font-size: 40px;
+  font-weight: bold;
   height: 30vh;
   width: 100vw;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.typed-cursor {
-  color: #FFFFFF;
-  font-size: 32px;
-}
 
 
 

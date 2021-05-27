@@ -2,7 +2,7 @@
 
   <div class="rent">
     <h2 class="border-bottom mb-3">Properties I've Requested to Rent</h2>
-    <% @bookings.each do |booking| %>
+    <% @bookings_as_renter.each do |booking| %>
       <% unless booking.status == 'rejected' %>
         <div class="d-flex p-3 mb-3 border-top border-bottom border-secondary rounded-sm location-card-big">
           <div class="location-info flex-grow-1 mb-5">

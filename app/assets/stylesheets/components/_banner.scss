@@ -12,7 +12,6 @@
 }
 
  #banner-text {
-  height: 50vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -24,8 +23,9 @@
   color: #FFFFFF;
   font-size: 40px;
   font-weight: bold;
-  height: 30vh;
+  height: 40px;
   width: 100vw;
+  margin-bottom: 48px;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }

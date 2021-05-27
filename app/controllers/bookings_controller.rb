@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.location = @location
     authorize @booking
     if @booking.save
-      redirect_to location_path(@location)
+      redirect_to bookings_path
     else
       render 'new'
     end

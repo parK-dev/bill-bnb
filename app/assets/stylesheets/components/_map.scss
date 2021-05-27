@@ -8,6 +8,35 @@
 }
 
 #map{
-   position: sticky;
-   top: 90px;
+ height: calc(100vh);
+ width: 100%;
+ position: fixed;
+ z-index: 0;
+ top: 100px;
+}
+
+.mapboxgl-map{
+  overflow: visible !important;
+}
+
+.mapboxgl-canvas {
+  width: 100%;
+  min-height: 100%;
+}
+
+.map-headers{
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0.8393732492997199) 65%, rgba(255,255,255,0) 100%);
+
+  padding: 24px;
+  top: 58px;
+
+}
+
+#content-location{
+    margin-top: 200px;
+    padding-left: 60px;
 }

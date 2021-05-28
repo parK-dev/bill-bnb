@@ -102,7 +102,7 @@
         </div>
         <p> <%= booking.start_date.strftime('%A, %b %d') %> ~ <%= booking.end_date.strftime('%A, %b %d') %> </p>
          <div class="d-flex align-items-center booking-status booking-rejected">
-            <i class="fas fa-do-not-enter"></i>
+            <i class="fas fa-times-circle"></i>
             <p><%= booking.status %></p>
           </div>
       </div>

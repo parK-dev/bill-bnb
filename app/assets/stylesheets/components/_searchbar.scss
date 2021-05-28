@@ -11,3 +11,7 @@
   height: 70px;
   width: 700px;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance:none;
+}

@@ -1,9 +1,11 @@
-<%= simple_form_for @location do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :capacity %>
-  <%= f.input :price_per_day %>
-  <%= f.submit :submit %>
-<% end %>
+<div class='form-wrapper'>
+  <%= simple_form_for @location  do |f| %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :capacity %>
+    <%= f.input :price_per_day %>
+    <%= f.submit :submit, class: 'button-small button-success' %>
+  <% end %>
+</div>

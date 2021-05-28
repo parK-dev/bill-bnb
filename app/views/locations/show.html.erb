@@ -16,7 +16,7 @@
 
         <h5 class="mr-3"><i class="fas fa-user-friends"></i> <%= @location.capacity %> </h5>
       </div>
-      <% unless @location.user == current_user %>
+      <% if @show_calendar %>
         <div class="location-info-wrapper mt-3">
           <% if policy(Booking).create? %>
             <%= render 'bookings/form' %>

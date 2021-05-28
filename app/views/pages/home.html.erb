@@ -3,7 +3,14 @@
     <div id="banner-text-typed">
     </div>
     <div class= "mb-5">
-      <%= render 'shared/search' %>
+      <%= form_tag locations_path, method: :get do %>
+        <%= search_field_tag :query,
+          params[:query],
+          class: 'search-bar',
+          id: "location_address",
+          placeholder: "Search"
+        %>
+      <% end %>
     </div>
   </div>
 </div>

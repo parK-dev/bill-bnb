@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
   def index
     if params[:query]
       @locations = policy_scope(Location).near(params[:query], 50)
+      flash[:alert] = "No available locations. Showing all locations." if @locations.empty?
     else
       @locations = policy_scope(Location)
     end
@@ -15,7 +16,6 @@ class LocationsController < ApplicationController
       }
     end
   end
-
 
   def show
     @location = Location.find(params[:id])

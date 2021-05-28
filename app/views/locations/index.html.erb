@@ -1,23 +1,21 @@
-  <div class="map-container">
-    <div id="map"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div class="d-flex justify-content-between align-items-start map-headers">
-      <div class= "ml-4 mb-5">
-        <%= render 'shared/search' %>
-      </div>
-      <% if current_user %>
-        <%= link_to 'Open Location', new_location_path, class: 'button button-success mb-3 mr-4' %>
-      <% end %>
-    </div>
-    <div class="flex-grow-1" id='content-location'>
-      <div>
-        <%= render 'location' %>
-      </div>
-
-    </div>
-
+<div class="map-container">
+  <div id="map"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <div class="d-flex justify-content-between align-items-start map-headers">
+    <div class= "ml-4 mb-5">
+      <%= render 'shared/search' %>
+    </div>
+    <% if current_user %>
+      <%= link_to 'Open Location', new_location_path, class: 'button button-success mb-3 mr-4' %>
+    <% end %>
+  </div>
+  <div class="flex-grow-1" id='content-location'>
+    <div>
+      <%= render 'location' %>
+    </div>
+  </div>
+</div>
 
 

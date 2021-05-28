@@ -29,11 +29,11 @@
 }
 
 
-.booking-status-confirmed {
+.booking-status {
   margin-top: 0;
   padding-top: 0;
   font-size: 24px;
-  color: $green;
+  // color: $green;
   p{
     color: black;
     opacity: 0.6;
@@ -43,16 +43,22 @@
   }
 }
 
-.booking-status-pending {
-  margin-top: 0;
-  padding-top: 0;
-  font-size: 24px;
+.booking-confirmed {
+  color: $green;
+}
+.booking-pending {
   color: $blue;
-  p{
+}
+.booking-rejected {
+  color: $orange;
+}
+
+.locations-link-tabs{
+  color: black;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
     color: black;
-    opacity: 0.6;
-    margin: 0 8px;
-    padding: 0;
-    font-size: 16px;
   }
 }
+

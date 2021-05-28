@@ -8,12 +8,11 @@ class LocationsController < ApplicationController
     else
       @locations = policy_scope(Location)
     end
-    @markers = @locations.geocoded.map do |location|
+     @markers = @locations.geocoded.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { location: location }),
-        marker_html: render_to_string(partial: "shared/marker", locals: { location: location })
+        info_window: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
   end

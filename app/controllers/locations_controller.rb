@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     @booking = Booking.new
-    @show_calendar = show_booking_form?
+    @show_calendar = show_calendar?
     authorize @location
   end
 
@@ -46,7 +46,7 @@ class LocationsController < ApplicationController
 
   private
 
-  def show_booking_form?
+  def show_calendar?
     @location.user != current_user && !current_user.nil?
   end
 

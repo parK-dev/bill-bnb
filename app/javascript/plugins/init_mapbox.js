@@ -26,13 +26,11 @@ const addMarkersToMap = (map, markers) => {
     );
 
   markers.forEach((marker) => {
-    let el = document.createElement('div');
-    el.innerHTML = marker.marker_html;
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-    new mapboxgl.Marker(el)
+    new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
-      .addTo(map)
+      .addTo(map);
 
 
   });

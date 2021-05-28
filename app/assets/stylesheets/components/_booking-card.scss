@@ -53,3 +53,12 @@
   color: $orange;
 }
 
+.locations-link-tabs{
+  color: black;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+

@@ -1,1 +1,8 @@
-<h1>allo</h1>
+
+<% @bookings_as_renter.each do |booking| %>
+  <%= render 'booking', booking: booking, owner: false %>
+<% end %>
+
+<% @bookings_as_owner.each do |booking| %>
+  <%= render 'booking', booking: booking, owner: true %>
+<% end %>

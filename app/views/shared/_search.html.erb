@@ -1,6 +1,6 @@
 <%= form_tag locations_path, method: :get do %>
   <%= search_field_tag :query,
-    params[:query],
+    @locations.any? ? params[:query] : alert,
     class: 'search-bar',
     id: "location_address",
     placeholder: "Search"

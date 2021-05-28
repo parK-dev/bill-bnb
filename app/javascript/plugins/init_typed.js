@@ -12,7 +12,7 @@ let options = {
   showCursor: false,
   startDelay: 500
 }
-console.log('hi');
+console.log('h');
 let initTyped = () => {
   if (document.getElementById('banner-text-typed')) {
     return new Typed('#banner-text-typed', options);

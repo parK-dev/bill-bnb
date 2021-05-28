@@ -15,29 +15,45 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade py-3 show active" id="confirmed" role="tabpanel" aria-labelledby="home-tab">
-      <% @bookings_as_renter.each do |booking| %>
-        <% if booking.status == 'confirmed' %>
-          <%= render 'booking', booking: booking, owner: false, status: 'confirmed' %>
+      <% if @bookings_as_renter.any? %>
+        <% @bookings_as_renter.each do |booking| %>
+          <% if booking.status == 'confirmed' %>
+            <%= render 'booking', booking: booking, owner: false, status: 'confirmed' %>
+          <% end %>
         <% end %>
+      <% else %>
+        <p>No confirmed bookings ...</p>
       <% end %>
     </div>
     <div class="tab-pane fade py-3" id="pending" role="tabpanel" aria-labelledby="profile-tab">
-      <% @bookings_as_renter.each do |booking| %>
-        <% if booking.status == 'pending' %>
-          <%= render 'booking', booking: booking, owner: false, status: 'pending' %>
+      <% if @bookings_as_renter.any? %>
+        <% @bookings_as_renter.each do |booking| %>
+          <% if booking.status == 'pending' %>
+            <%= render 'booking', booking: booking, owner: false, status: 'pending' %>
+          <% end %>
         <% end %>
+      <% else %>
+        <p>No pending bookings ...</p>
       <% end %>
     </div>
     <div class="tab-pane fade py-3" id="rejected" role="tabpanel" aria-labelledby="converstion-tab">
-      <% @bookings_as_renter.each do |booking| %>
-        <% if booking.status == 'rejected' %>
-          <%= render 'booking', booking: booking, owner: false, status: 'rejected' %>
+      <% if @bookings_as_renter.any? %>
+        <% @bookings_as_renter.each do |booking| %>
+          <% if booking.status == 'rejected' %>
+            <%= render 'booking', booking: booking, owner: false, status: 'rejected' %>
+          <% end %>
         <% end %>
+      <% else %>
+        <p> No rejected bookings ...</p>
       <% end %>
     </div>
     <div class="tab-pane fade py-3" id="owner" role="tabpanel" aria-labelledby="converstion-tab">
-      <% @bookings_as_owner.each do |booking| %>
-        <%= render 'booking', booking: booking, owner: true%>
+      <% if @bookings_as_owner.any? %>
+        <% @bookings_as_owner.each do |booking| %>
+          <%= render 'booking', booking: booking, owner: true%>
+        <% end %>
+      <% else %>
+        <p>No pending bookings for your locations ...</p>
       <% end %>
     </div>
   </div>

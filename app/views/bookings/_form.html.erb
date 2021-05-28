@@ -1,9 +1,9 @@
 <div id="location-booking-dates" data-unavailable="<%= @location.unavailable_dates.to_json %>">
   <% if current_user != @location.user %>
     <%= simple_form_for ([@location, @booking]) do |f| %>
-        <%= f.input :start_date, as: :string %>
+        <%= f.input :start_date, as: :string, class: 'input-pill' %>
         <%= f.input :end_date, as: :string %>
-        <%= f.submit :submit, class: 'btn btn-success' %>
+        <%= f.submit :submit, class: 'button-small button-success' %>
     <% end %>
   <% end %>
 </div>

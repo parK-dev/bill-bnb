@@ -2,3 +2,36 @@
   height: 550px;
   background-size: 100% 100%;
 }
+
+
+.location-show-wrapper{
+  padding: 50px;
+
+}
+
+
+.location-info-wrapper{
+  padding: 16px 16px;
+  border: 1 solid $light-gray;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  p{
+    opacity: 0.7;
+  }
+}
+
+#location-info-image{
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+// #booking_start_date{
+//   border-radius: 30px;
+// }
+// #booking_end_date{
+//   border-radius: 30px;
+// }
+
+.form-control {
+  border-radius: 30px;
+}

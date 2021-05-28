@@ -1,8 +1,44 @@
-
-<% @bookings_as_renter.each do |booking| %>
-  <%= render 'booking', booking: booking, owner: false %>
-<% end %>
-
-<% @bookings_as_owner.each do |booking| %>
-  <%= render 'booking', booking: booking, owner: true %>
-<% end %>
+<div class="tabs-container">
+  <ul class="nav tabs-underlined" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#confirmed" role="tab" aria-controls="home" aria-selected="true">Confirmed Bookings</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="tab-underlined" id="profile-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="profile" aria-selected="false">Pending Bookings</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="tab-underlined" id="converstion-tab" data-toggle="tab" href="#rejected" role="tab" aria-controls="converstion" aria-selected="false">Rejected Bookings</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="tab-underlined" id="converstion-tab" data-toggle="tab" href="#owner" role="tab" aria-controls="converstion" aria-selected="false">Owner</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade py-3 show active" id="confirmed" role="tabpanel" aria-labelledby="home-tab">
+      <% @bookings_as_renter.each do |booking| %>
+        <% if booking.status == 'confirmed' %>
+          <%= render 'booking', booking: booking, owner: false, status: 'confirmed' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade py-3" id="pending" role="tabpanel" aria-labelledby="profile-tab">
+      <% @bookings_as_renter.each do |booking| %>
+        <% if booking.status == 'pending' %>
+          <%= render 'booking', booking: booking, owner: false, status: 'pending' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade py-3" id="rejected" role="tabpanel" aria-labelledby="converstion-tab">
+      <% @bookings_as_renter.each do |booking| %>
+        <% if booking.status == 'rejected' %>
+          <%= render 'booking', booking: booking, owner: false, status: 'rejected' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade py-3" id="owner" role="tabpanel" aria-labelledby="converstion-tab">
+      <% @bookings_as_owner.each do |booking| %>
+        <%= render 'booking', booking: booking, owner: true%>
+      <% end %>
+    </div>
+  </div>
+</div>

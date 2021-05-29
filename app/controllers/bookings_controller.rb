@@ -22,8 +22,9 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
 
-
+    # Only displays the current owners bookings
     @bookings_as_owner = current_user.bookings_as_owner
+    # Only displays the current users bookings - the bookings they have accepted /rejected / pending as the owner
     @bookings_as_renter = current_user.bookings - @bookings_as_owner
   end
 

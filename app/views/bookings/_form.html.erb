@@ -3,7 +3,7 @@
     <%= simple_form_for ([@location, @booking]) do |f| %>
         <%= f.input :start_date, as: :string %>
         <%= f.input :end_date, as: :string %>
-        <div class="d-flex mb-3 mt-2 border-bottom">
+        <div class="total-price-wrapper d-flex mb-3 mt-2 border-bottom">
           <h3 class="flex-grow-1">Total: </h3>
           <h3 id='total' data-price= <%= price %> > </h3>
         </div>

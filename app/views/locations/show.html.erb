@@ -19,7 +19,7 @@
       <% if @show_calendar %>
         <div class="location-info-wrapper mt-3">
           <% if policy(Booking).create? %>
-            <%= render 'bookings/form' %>
+            <%= render 'bookings/form', price: @location.price_per_day %>
           <% end %>
         </div>
       <% end %>

@@ -1,8 +1,12 @@
 <div id="location-booking-dates" data-unavailable="<%= @location.unavailable_dates.to_json %>">
   <% if current_user != @location.user %>
     <%= simple_form_for ([@location, @booking]) do |f| %>
-        <%= f.input :start_date, as: :string, class: 'input-pill' %>
+        <%= f.input :start_date, as: :string %>
         <%= f.input :end_date, as: :string %>
+        <div class="total-price-wrapper d-flex mb-3 mt-2 border-bottom">
+          <h3 class="flex-grow-1">Total: </h3>
+          <h3 id='total' data-price= <%= price %> > </h3>
+        </div>
         <%= f.submit :submit, class: 'button-small button-success' %>
     <% end %>
   <% end %>

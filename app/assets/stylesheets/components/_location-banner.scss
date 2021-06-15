@@ -25,9 +25,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
 
-// #booking_start_date{
-//   border-radius: 30px;
-// }
-// #booking_end_date{
-//   border-radius: 30px;
-// }
+.total-price-wrapper {
+  height: 0;
+  overflow: hidden;
+}
